@@ -1,0 +1,26 @@
+{
+ "routing":[
+  {"id":"R1","input":"Mere office ne 3 mahine se salary nahi di aur experience letter bhi rok liya","expect":"salary"},
+  {"id":"R2","input":"मुझे सरकारी दफ्तर से सूचना का अधिकार के तहत जानकारी माँगनी है","expect":"rti"},
+  {"id":"R3","input":"Someone called, took my OTP and 12,000 was debited from my UPI account","expect":"upi_fraud"},
+  {"id":"R4","input":"என் சம்பளம் இரண்டு மாதமாக வரவில்லை","expect":"salary"},
+  {"id":"R5","input":"মোবাইলে প্রতারণা করে আমার টাকা কেটে নিয়েছে","expect":"upi_fraud"},
+  {"id":"R6","input":"My neighbour is playing loud music every night","expect":"other"}
+ ],
+ "deadlines":[
+  {"id":"D1","issue":"rti","facts":{"rti_filed":"2026-09-01"},"expect":{"PIO reply due":"2026-10-01","Last day for first appeal":"2026-10-31"}},
+  {"id":"D2","issue":"upi_fraud","facts":{"fraud_noticed":"2026-11-05"},"expect":{"Report to bank by (3 working days)":"2026-11-10"}},
+  {"id":"D3","issue":"salary","facts":{"salary_due":"2026-03-31"},"expect":{"Civil-suit limitation (about)":"2029-03-31"}},
+  {"id":"D4","issue":"salary","facts":{"salary_due":"2024-02-29"},"expect":{"Civil-suit limitation (about)":"2027-02-28"}}
+ ],
+ "guard":[
+  {"id":"G1","issue":"rti","text":"The PIO must reply in 30 days [RTI-7]. If not, file a first appeal within 30 days [RTI-19].","expect_violations":false},
+  {"id":"G2","issue":"rti","text":"Under Section 420A of the RTI Act the PIO can be fined Rs 1 lakh.","expect_violations":true},
+  {"id":"G3","issue":"upi_fraud","text":"As held in Sharma v. State Bank, you will get a full refund [RBI-2017].","expect_violations":true},
+  {"id":"G4","issue":"salary","text":"Per [XYZ-99] your employer must pay interest.","expect_violations":true},
+  {"id":"G5","issue":"salary","text":"I guarantee you will win this case [SAL-FORUM].","expect_violations":true},
+  {"id":"G6","issue":"salary","text":"File a complaint with the Labour Commissioner [SAL-FORUM]. Use RTI notes [RTI-7].","expect_violations":true},
+  {"id":"G7","issue":"rti","text":"Section 7(1) says the PIO must reply within 30 days [RTI-7].","expect_violations":false},
+  {"id":"G8","issue":"rti","text":"Section 8 exempts all information about government salaries [RTI-6].","expect_violations":true}
+ ]
+}

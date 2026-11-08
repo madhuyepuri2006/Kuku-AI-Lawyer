@@ -1,0 +1,110 @@
+[
+ {
+  "group": "routing",
+  "id": "R1",
+  "pass": true,
+  "detail": "input='Mere office ne 3 mahine se salary nahi di aur experience letter bhi rok liya' -> salary (expected salary)"
+ },
+ {
+  "group": "routing",
+  "id": "R2",
+  "pass": true,
+  "detail": "input='मुझे सरकारी दफ्तर से सूचना का अधिकार के तहत जानकारी माँगनी है' -> rti (expected rti)"
+ },
+ {
+  "group": "routing",
+  "id": "R3",
+  "pass": true,
+  "detail": "input='Someone called, took my OTP and 12,000 was debited from my UPI account' -> upi_fraud (expected upi_fraud)"
+ },
+ {
+  "group": "routing",
+  "id": "R4",
+  "pass": true,
+  "detail": "input='என் சம்பளம் இரண்டு மாதமாக வரவில்லை' -> salary (expected salary)"
+ },
+ {
+  "group": "routing",
+  "id": "R5",
+  "pass": true,
+  "detail": "input='মোবাইলে প্রতারণা করে আমার টাকা কেটে নিয়েছে' -> upi_fraud (expected upi_fraud)"
+ },
+ {
+  "group": "routing",
+  "id": "R6",
+  "pass": true,
+  "detail": "input='My neighbour is playing loud music every night' -> other (expected other)"
+ },
+ {
+  "group": "deadlines",
+  "id": "D1",
+  "pass": true,
+  "detail": "{'rti_filed': '2026-09-01'} -> {'PIO reply due': '2026-10-01', 'Last day for first appeal': '2026-10-31'} (expected {'PIO reply due': '2026-10-01', 'Last day for first appeal': '2026-10-31'})"
+ },
+ {
+  "group": "deadlines",
+  "id": "D2",
+  "pass": true,
+  "detail": "{'fraud_noticed': '2026-11-05'} -> {'Report to bank by (3 working days)': '2026-11-10', 'Call 1930 / cybercrime.gov.in': 'immediately'} (expected {'Report to bank by (3 working days)': '2026-11-10'})"
+ },
+ {
+  "group": "deadlines",
+  "id": "D3",
+  "pass": true,
+  "detail": "{'salary_due': '2026-03-31'} -> {'Civil-suit limitation (about)': '2029-03-31'} (expected {'Civil-suit limitation (about)': '2029-03-31'})"
+ },
+ {
+  "group": "deadlines",
+  "id": "D4",
+  "pass": true,
+  "detail": "{'salary_due': '2024-02-29'} -> {'Civil-suit limitation (about)': '2027-02-28'} (expected {'Civil-suit limitation (about)': '2027-02-28'})"
+ },
+ {
+  "group": "guard",
+  "id": "G1",
+  "pass": true,
+  "detail": "text='The PIO must reply in 30 days [RTI-7]. If not, file a first appeal within 30 days [RTI-19].' -> violations=[]"
+ },
+ {
+  "group": "guard",
+  "id": "G2",
+  "pass": true,
+  "detail": "text='Under Section 420A of the RTI Act the PIO can be fined Rs 1 lakh.' -> violations=[\"section/article 'Section 420A' not supported by cited notes\"]"
+ },
+ {
+  "group": "guard",
+  "id": "G3",
+  "pass": true,
+  "detail": "text='As held in Sharma v. State Bank, you will get a full refund [RBI-2017].' -> violations=['possible case-law citation (not allowed)']"
+ },
+ {
+  "group": "guard",
+  "id": "G4",
+  "pass": true,
+  "detail": "text='Per [XYZ-99] your employer must pay interest.' -> violations=['unknown citation [XYZ-99]']"
+ },
+ {
+  "group": "guard",
+  "id": "G5",
+  "pass": true,
+  "detail": "text='I guarantee you will win this case [SAL-FORUM].' -> violations=['outcome promise']"
+ },
+ {
+  "group": "guard",
+  "id": "G6",
+  "pass": true,
+  "detail": "text='File a complaint with the Labour Commissioner [SAL-FORUM]. Use RTI notes [RTI-7].' -> violations=['citation [RTI-7] not allowed for this issue']"
+ },
+ {
+  "group": "guard",
+  "id": "G7",
+  "pass": true,
+  "detail": "text='Section 7(1) says the PIO must reply within 30 days [RTI-7].' -> violations=[]"
+ },
+ {
+  "group": "guard",
+  "id": "G8",
+  "pass": true,
+  "detail": "text='Section 8 exempts all information about government salaries [RTI-6].' -> violations=[\"section/article 'Section 8' not supported by cited notes\"]"
+ }
+]
